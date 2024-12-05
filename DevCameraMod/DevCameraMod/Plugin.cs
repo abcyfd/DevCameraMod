@@ -256,8 +256,8 @@ namespace DevCameraMod
                 {
                     int modesWhenNotInRoom = 2;
                     int moesWhenInRoom = 7;
-                    GUI.Box(new Rect(25, 60, 180, canvasScaleCurrent), "Dev's Camera Mod v" + PluginInfo.Version);
-
+                    GUI.Box(new Rect(25, 60, 180, canvasScaleCurrent), "Dev's Camera Mod <color=#42B917>(abcyfd)</color>");
+                    GUI.Label(new Rect(25, 80, 180, 20), "<color=#6895AB>fucked around by abcyfd</color>");
                     GUI.Label(new Rect((180 / 2) - 30, 100, 180, 20), fixedCameraModeName[cameraMode]);
 
                     if (GUI.Button(new Rect(25 + 5, 100, 20, 20), "<")) SwitchModePress(true, modesWhenNotInRoom, moesWhenInRoom);
