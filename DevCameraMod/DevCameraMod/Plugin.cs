@@ -121,7 +121,7 @@ namespace DevCameraMod
         public GorillaTagManager gtm;
 
         // Enums
-        public enum CameraModes // TODO: rearrange this to make it work better
+        public enum CameraModes // TODO: not do anything because im not gonna update this and do it again
         {
             Default,
             FP,
@@ -221,25 +221,7 @@ namespace DevCameraMod
             Thread thread = new Thread(UpdateThead);
             thread.Start();
         }
-
-        void UpdateThead()
-        {
-            Thread.Sleep(10000);
-            webClient = new WebClient();
-            cameraUI.version2.text = PluginInfo.Name + $"{(isAllowed ? string.Empty : "Free")} v" + PluginInfo.Version;
-            try
-            {
-                while (true)
-                {
-                    Thread.Sleep(5000);
-                    string webData = webClient.DownloadString("https://raw.githubusercontent.com/developer9998/DevCameraMod/main/DevCameraMod/DevCameraMod/ScreenText.txt");
-
-                    cameraUI.versionTex.text = webData;
-                }
-            }
-            finally { webClient.Dispose(); }
-        }
-
+// removed UpdateThead() so theres no checking for if the user is allowed or not :3
         internal void SwitchModePress(bool leftButton, int minConstraints, int maxConstaints)
         {
             if (leftButton)
@@ -1086,7 +1068,7 @@ namespace DevCameraMod
                 if (type != null) GorillaTagger.Instance.offlineVRRig.tagSound.PlayOneShot(type);
             }
 
-            if (Keyboard.current.f4Key.wasPressedThisFrame && isAllowed)
+            if (Keyboard.current.f4Key.wasPressedThisFrame)
             {
                 canBeShown = !canBeShown;
                 if (canBeShown) cameraUI.canvas.enabled = shouldBeEnabled;
